@@ -1,0 +1,1437 @@
+Compiled: VISITOR
+Compiled: HALL
+Compiled: ROOM_A
+Compiled: ROOM_B
+Compiled: ROOM_C
+Compiled: ROOM_D
+Compiled: DOOR_LOCK_HALL
+Compiled: DOOR_LOCK_A
+Compiled: DOOR_LOCK_B
+Compiled: DOOR_LOCK_C
+Compiled: DOOR_LOCK_D
+Formula !MINIMISE_P_VISITOR_RULE_HALL = (true U (HALL_LOCKED & allow_Hall))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_VISITOR_RULE_HALL = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |HALL_LOCKED&allow_Hall -> S1).
+Composition:MINIMISE_P_VISITOR_RULE_HALL = HALL_LOCKED || allow_Hall || SYNC || MINIMISE_P_VISITOR_RULE_HALL
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 43120KB
+Composed in 34ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_HALL minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_VISITOR_RULE_HALL)
+DFA(MINIMISE_P_VISITOR_RULE_HALL) has 2 states.
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_HALL minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_HALL1 = (true U ((!HALL_LOCKED & arrive_Hall[2]) & X (!lock_Hall U (resRoomStatus & !lock_Hall))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_HALL1 = S0,
+S1@ =(true -> S1),
+S0 =(!HALL_LOCKED&arrive_Hall[2] -> S2 |true -> S0),
+S2 =(!lock_Hall -> S2 |resRoomStatus&!lock_Hall -> S1).
+Composition:MINIMISE_P_LOCK_RULE_HALL1 = HALL_LOCKED || arrive_Hall[2] || resRoomStatus || lock_Hall || SYNC || MINIMISE_P_LOCK_RULE_HALL1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 43 Transitions: 120 Memory used: 31646KB
+Composed in 23ms
+After Tau elimination = 21 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_HALL1 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_HALL1)
+DFA(MINIMISE_P_LOCK_RULE_HALL1) has 6 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_HALL1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_HALL2 = (true U ((HALL_TH_LOCKED1 & HALL_TH_LOCKED2) & unLock_Hall))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_HALL2 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |HALL_TH_LOCKED1&HALL_TH_LOCKED2&unLock_Hall -> S1).
+Composition:MINIMISE_P_LOCK_RULE_HALL2 = HALL_TH_LOCKED1 || HALL_TH_LOCKED2 || unLock_Hall || SYNC || MINIMISE_P_LOCK_RULE_HALL2
+State Space: 2 * 2 * 2 * 2 * 2 = 2 ** 5
+Composing...
+-- States: 32 Transitions: 97 Memory used: 31621KB
+Composed in 23ms
+After Tau elimination = 16 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_HALL2 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_HALL2)
+DFA(MINIMISE_P_LOCK_RULE_HALL2) has 4 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_HALL2 minimising....
+Minimised States: 4 in 1ms
+Formula !MINIMISE_P_UNLOCK_RULE_HALL1 = (true U ((HALL_LOCKED & allow_A) & X (!unLock_Hall U (resRoomStatus & !unLock_Hall))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_UNLOCK_RULE_HALL1 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |HALL_LOCKED&allow_A -> S2),
+S2 =(!unLock_Hall -> S2 |resRoomStatus&!unLock_Hall -> S1).
+Composition:MINIMISE_P_UNLOCK_RULE_HALL1 = HALL_LOCKED || allow_A || resRoomStatus || unLock_Hall || SYNC || MINIMISE_P_UNLOCK_RULE_HALL1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 44 Transitions: 124 Memory used: 31733KB
+Composed in 21ms
+After Tau elimination = 22 state
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_HALL1 minimising.....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_UNLOCK_RULE_HALL1)
+DFA(MINIMISE_P_UNLOCK_RULE_HALL1) has 6 states.
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_HALL1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_HALL_LOCK_TIMING = (true U (!HALL_LOCK_TIME & lock_Hall))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_HALL_LOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!HALL_LOCK_TIME&lock_Hall -> S1 |true -> S0).
+Composition:MINIMISE_P_HALL_LOCK_TIMING = HALL_LOCK_TIME || lock_Hall || SYNC || MINIMISE_P_HALL_LOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 31654KB
+Composed in 19ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_HALL_LOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_HALL_LOCK_TIMING)
+DFA(MINIMISE_P_HALL_LOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_HALL_LOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_HALL_UNLOCK_TIMING = (true U (!UNLOCK_TIME & unLock_Hall))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_HALL_UNLOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!UNLOCK_TIME&unLock_Hall -> S1 |true -> S0).
+Composition:MINIMISE_P_HALL_UNLOCK_TIMING = UNLOCK_TIME || unLock_Hall || SYNC || MINIMISE_P_HALL_UNLOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 369 Memory used: 31759KB
+Composed in 23ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_HALL_UNLOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_HALL_UNLOCK_TIMING)
+DFA(MINIMISE_P_HALL_UNLOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_HALL_UNLOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_VISITOR_RULE_A = (true U (A_LOCKED & allow_A))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_VISITOR_RULE_A = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |A_LOCKED&allow_A -> S1).
+Composition:MINIMISE_P_VISITOR_RULE_A = A_LOCKED || allow_A || SYNC || MINIMISE_P_VISITOR_RULE_A
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32841KB
+Composed in 23ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_A minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_VISITOR_RULE_A)
+DFA(MINIMISE_P_VISITOR_RULE_A) has 2 states.
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_A minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_A1 = (true U ((!A_LOCKED & arrive_A[2]) & X (!lock_A U (resRoomStatus & !lock_A))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_A1 = S0,
+S1@ =(true -> S1),
+S0 =(!A_LOCKED&arrive_A[2] -> S2 |true -> S0),
+S2 =(!lock_A -> S2 |resRoomStatus&!lock_A -> S1).
+Composition:MINIMISE_P_LOCK_RULE_A1 = A_LOCKED || arrive_A[2] || resRoomStatus || lock_A || SYNC || MINIMISE_P_LOCK_RULE_A1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 43 Transitions: 120 Memory used: 32049KB
+Composed in 23ms
+After Tau elimination = 21 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_A1 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_A1)
+DFA(MINIMISE_P_LOCK_RULE_A1) has 6 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_A1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_A2 = (true U ((A_TH_LOCKED1 & A_TH_LOCKED2) & unLock_A))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_A2 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |A_TH_LOCKED1&A_TH_LOCKED2&unLock_A -> S1).
+Composition:MINIMISE_P_LOCK_RULE_A2 = A_TH_LOCKED1 || A_TH_LOCKED2 || unLock_A || SYNC || MINIMISE_P_LOCK_RULE_A2
+State Space: 2 * 2 * 2 * 2 * 2 = 2 ** 5
+Composing...
+-- States: 32 Transitions: 97 Memory used: 31982KB
+Composed in 19ms
+After Tau elimination = 16 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_A2 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_A2)
+DFA(MINIMISE_P_LOCK_RULE_A2) has 4 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_A2 minimising....
+Minimised States: 4 in 0ms
+Formula !MINIMISE_P_UNLOCK_RULE_A1 = (true U ((A_LOCKED & allow_B) & X (!unLock_A U (resRoomStatus & !unLock_A))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_UNLOCK_RULE_A1 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |A_LOCKED&allow_B -> S2),
+S2 =(!unLock_A -> S2 |resRoomStatus&!unLock_A -> S1).
+Composition:MINIMISE_P_UNLOCK_RULE_A1 = A_LOCKED || allow_B || resRoomStatus || unLock_A || SYNC || MINIMISE_P_UNLOCK_RULE_A1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 44 Transitions: 124 Memory used: 32039KB
+Composed in 19ms
+After Tau elimination = 22 state
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_A1 minimising.....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_UNLOCK_RULE_A1)
+DFA(MINIMISE_P_UNLOCK_RULE_A1) has 6 states.
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_A1 minimising....
+Minimised States: 3 in 1ms
+Formula !MINIMISE_P_A_LOCK_TIMING = (true U (!A_LOCK_TIME & lock_A))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_A_LOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!A_LOCK_TIME&lock_A -> S1 |true -> S0).
+Composition:MINIMISE_P_A_LOCK_TIMING = A_LOCK_TIME || lock_A || SYNC || MINIMISE_P_A_LOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 31884KB
+Composed in 21ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_A_LOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_A_LOCK_TIMING)
+DFA(MINIMISE_P_A_LOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_A_LOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_A_UNLOCK_TIMING = (true U (!UNLOCK_TIME & unLock_A))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_A_UNLOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!UNLOCK_TIME&unLock_A -> S1 |true -> S0).
+Composition:MINIMISE_P_A_UNLOCK_TIMING = UNLOCK_TIME || unLock_A || SYNC || MINIMISE_P_A_UNLOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 369 Memory used: 32043KB
+Composed in 24ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_A_UNLOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_A_UNLOCK_TIMING)
+DFA(MINIMISE_P_A_UNLOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_A_UNLOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_VISITOR_RULE_B = (true U (B_LOCKED & allow_B))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_VISITOR_RULE_B = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |B_LOCKED&allow_B -> S1).
+Composition:MINIMISE_P_VISITOR_RULE_B = B_LOCKED || allow_B || SYNC || MINIMISE_P_VISITOR_RULE_B
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32037KB
+Composed in 21ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_B minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_VISITOR_RULE_B)
+DFA(MINIMISE_P_VISITOR_RULE_B) has 2 states.
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_B minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_B1 = (true U ((!B_LOCKED & arrive_B[2]) & X (!lock_B U (resRoomStatus & !lock_B))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_B1 = S0,
+S1@ =(true -> S1),
+S0 =(!B_LOCKED&arrive_B[2] -> S2 |true -> S0),
+S2 =(!lock_B -> S2 |resRoomStatus&!lock_B -> S1).
+Composition:MINIMISE_P_LOCK_RULE_B1 = B_LOCKED || arrive_B[2] || resRoomStatus || lock_B || SYNC || MINIMISE_P_LOCK_RULE_B1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 43 Transitions: 120 Memory used: 32024KB
+Composed in 19ms
+After Tau elimination = 21 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_B1 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_B1)
+DFA(MINIMISE_P_LOCK_RULE_B1) has 6 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_B1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_B2 = (true U ((B_TH_LOCKED1 & B_TH_LOCKED2) & unLock_B))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_B2 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |B_TH_LOCKED1&B_TH_LOCKED2&unLock_B -> S1).
+Composition:MINIMISE_P_LOCK_RULE_B2 = B_TH_LOCKED1 || B_TH_LOCKED2 || unLock_B || SYNC || MINIMISE_P_LOCK_RULE_B2
+State Space: 2 * 2 * 2 * 2 * 2 = 2 ** 5
+Composing...
+-- States: 32 Transitions: 97 Memory used: 32030KB
+Composed in 16ms
+After Tau elimination = 16 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_B2 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_B2)
+DFA(MINIMISE_P_LOCK_RULE_B2) has 4 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_B2 minimising....
+Minimised States: 4 in 0ms
+Formula !MINIMISE_P_UNLOCK_RULE_B1 = (true U ((B_LOCKED & allow_C) & X (!unLock_B U (resRoomStatus & !unLock_B))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_UNLOCK_RULE_B1 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |B_LOCKED&allow_C -> S2),
+S2 =(!unLock_B -> S2 |resRoomStatus&!unLock_B -> S1).
+Composition:MINIMISE_P_UNLOCK_RULE_B1 = B_LOCKED || allow_C || resRoomStatus || unLock_B || SYNC || MINIMISE_P_UNLOCK_RULE_B1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 44 Transitions: 124 Memory used: 32114KB
+Composed in 18ms
+After Tau elimination = 22 state
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_B1 minimising.....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_UNLOCK_RULE_B1)
+DFA(MINIMISE_P_UNLOCK_RULE_B1) has 6 states.
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_B1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_B_LOCK_TIMING = (true U (!B_LOCK_TIME & lock_B))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_B_LOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!B_LOCK_TIME&lock_B -> S1 |true -> S0).
+Composition:MINIMISE_P_B_LOCK_TIMING = B_LOCK_TIME || lock_B || SYNC || MINIMISE_P_B_LOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32051KB
+Composed in 19ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_B_LOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_B_LOCK_TIMING)
+DFA(MINIMISE_P_B_LOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_B_LOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_B_UNLOCK_TIMING = (true U (!UNLOCK_TIME & unLock_B))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_B_UNLOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!UNLOCK_TIME&unLock_B -> S1 |true -> S0).
+Composition:MINIMISE_P_B_UNLOCK_TIMING = UNLOCK_TIME || unLock_B || SYNC || MINIMISE_P_B_UNLOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 369 Memory used: 32160KB
+Composed in 17ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_B_UNLOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_B_UNLOCK_TIMING)
+DFA(MINIMISE_P_B_UNLOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_B_UNLOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_VISITOR_RULE_C = (true U (C_LOCKED & allow_C))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_VISITOR_RULE_C = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |C_LOCKED&allow_C -> S1).
+Composition:MINIMISE_P_VISITOR_RULE_C = C_LOCKED || allow_C || SYNC || MINIMISE_P_VISITOR_RULE_C
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32186KB
+Composed in 17ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_C minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_VISITOR_RULE_C)
+DFA(MINIMISE_P_VISITOR_RULE_C) has 2 states.
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_C minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_C1 = (true U ((!C_LOCKED & arrive_C[2]) & X (!lock_C U (resRoomStatus & !lock_C))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_C1 = S0,
+S1@ =(true -> S1),
+S0 =(!C_LOCKED&arrive_C[2] -> S2 |true -> S0),
+S2 =(!lock_C -> S2 |resRoomStatus&!lock_C -> S1).
+Composition:MINIMISE_P_LOCK_RULE_C1 = C_LOCKED || arrive_C[2] || resRoomStatus || lock_C || SYNC || MINIMISE_P_LOCK_RULE_C1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 43 Transitions: 120 Memory used: 32441KB
+Composed in 22ms
+After Tau elimination = 21 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_C1 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_C1)
+DFA(MINIMISE_P_LOCK_RULE_C1) has 6 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_C1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_C2 = (true U ((C_TH_LOCKED1 & C_TH_LOCKED2) & unLock_C))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_C2 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |C_TH_LOCKED1&C_TH_LOCKED2&unLock_C -> S1).
+Composition:MINIMISE_P_LOCK_RULE_C2 = C_TH_LOCKED1 || C_TH_LOCKED2 || unLock_C || SYNC || MINIMISE_P_LOCK_RULE_C2
+State Space: 2 * 2 * 2 * 2 * 2 = 2 ** 5
+Composing...
+-- States: 32 Transitions: 97 Memory used: 32223KB
+Composed in 24ms
+After Tau elimination = 16 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_C2 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_C2)
+DFA(MINIMISE_P_LOCK_RULE_C2) has 4 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_C2 minimising....
+Minimised States: 4 in 0ms
+Formula !MINIMISE_P_UNLOCK_RULE_C1 = (true U ((C_LOCKED & allow_D) & X (!unLock_C U (resRoomStatus & !unLock_C))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_UNLOCK_RULE_C1 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |C_LOCKED&allow_D -> S2),
+S2 =(!unLock_C -> S2 |resRoomStatus&!unLock_C -> S1).
+Composition:MINIMISE_P_UNLOCK_RULE_C1 = C_LOCKED || allow_D || resRoomStatus || unLock_C || SYNC || MINIMISE_P_UNLOCK_RULE_C1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 44 Transitions: 124 Memory used: 32311KB
+Composed in 20ms
+After Tau elimination = 22 state
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_C1 minimising.....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_UNLOCK_RULE_C1)
+DFA(MINIMISE_P_UNLOCK_RULE_C1) has 6 states.
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_C1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_C_LOCK_TIMING = (true U (!C_LOCK_TIME & lock_C))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_C_LOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!C_LOCK_TIME&lock_C -> S1 |true -> S0).
+Composition:MINIMISE_P_C_LOCK_TIMING = C_LOCK_TIME || lock_C || SYNC || MINIMISE_P_C_LOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32258KB
+Composed in 17ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_C_LOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_C_LOCK_TIMING)
+DFA(MINIMISE_P_C_LOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_C_LOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_C_UNLOCK_TIMING = (true U (!UNLOCK_TIME & unLock_C))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_C_UNLOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!UNLOCK_TIME&unLock_C -> S1 |true -> S0).
+Composition:MINIMISE_P_C_UNLOCK_TIMING = UNLOCK_TIME || unLock_C || SYNC || MINIMISE_P_C_UNLOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 369 Memory used: 32369KB
+Composed in 16ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_C_UNLOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_C_UNLOCK_TIMING)
+DFA(MINIMISE_P_C_UNLOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_C_UNLOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_VISITOR_RULE_D = (true U (D_LOCKED & allow_D))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_VISITOR_RULE_D = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |D_LOCKED&allow_D -> S1).
+Composition:MINIMISE_P_VISITOR_RULE_D = D_LOCKED || allow_D || SYNC || MINIMISE_P_VISITOR_RULE_D
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32399KB
+Composed in 18ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_D minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_VISITOR_RULE_D)
+DFA(MINIMISE_P_VISITOR_RULE_D) has 2 states.
+Tau reduction ON
+MINIMISE_P_VISITOR_RULE_D minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_D1 = (true U ((!D_LOCKED & arrive_D[2]) & X (!lock_D U (resRoomStatus & !lock_D))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_D1 = S0,
+S1@ =(true -> S1),
+S0 =(!D_LOCKED&arrive_D[2] -> S2 |true -> S0),
+S2 =(!lock_D -> S2 |resRoomStatus&!lock_D -> S1).
+Composition:MINIMISE_P_LOCK_RULE_D1 = D_LOCKED || arrive_D[2] || resRoomStatus || lock_D || SYNC || MINIMISE_P_LOCK_RULE_D1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 43 Transitions: 120 Memory used: 32414KB
+Composed in 19ms
+After Tau elimination = 21 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_D1 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_D1)
+DFA(MINIMISE_P_LOCK_RULE_D1) has 6 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_D1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_LOCK_RULE_D2 = (true U ((D_TH_LOCKED1 & D_TH_LOCKED2) & unLock_D))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_LOCK_RULE_D2 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |D_TH_LOCKED1&D_TH_LOCKED2&unLock_D -> S1).
+Composition:MINIMISE_P_LOCK_RULE_D2 = D_TH_LOCKED1 || D_TH_LOCKED2 || unLock_D || SYNC || MINIMISE_P_LOCK_RULE_D2
+State Space: 2 * 2 * 2 * 2 * 2 = 2 ** 5
+Composing...
+-- States: 32 Transitions: 97 Memory used: 32429KB
+Composed in 18ms
+After Tau elimination = 16 state
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_D2 minimising....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_LOCK_RULE_D2)
+DFA(MINIMISE_P_LOCK_RULE_D2) has 4 states.
+Tau reduction ON
+MINIMISE_P_LOCK_RULE_D2 minimising....
+Minimised States: 4 in 0ms
+Formula !MINIMISE_P_UNLOCK_RULE_D1 = (true U ((D_LOCKED & allow_Out) & X (!unLock_D U (resRoomStatus & !unLock_D))))
+GBA 3 states 5 transitions
+Buchi automata:
+MINIMISE_P_UNLOCK_RULE_D1 = S0,
+S1@ =(true -> S1),
+S0 =(true -> S0 |D_LOCKED&allow_Out -> S2),
+S2 =(!unLock_D -> S2 |resRoomStatus&!unLock_D -> S1).
+Composition:MINIMISE_P_UNLOCK_RULE_D1 = D_LOCKED || allow_Out || resRoomStatus || unLock_D || SYNC || MINIMISE_P_UNLOCK_RULE_D1
+State Space: 2 * 2 * 2 * 2 * 2 * 4 = 2 ** 7
+Composing...
+-- States: 44 Transitions: 124 Memory used: 32510KB
+Composed in 17ms
+After Tau elimination = 22 state
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_D1 minimising.....
+Minimised States: 5 in 0ms
+make DFA(MINIMISE_P_UNLOCK_RULE_D1)
+DFA(MINIMISE_P_UNLOCK_RULE_D1) has 6 states.
+Tau reduction ON
+MINIMISE_P_UNLOCK_RULE_D1 minimising....
+Minimised States: 3 in 0ms
+Formula !MINIMISE_P_D_LOCK_TIMING = (true U (!D_LOCK_TIME & lock_D))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_D_LOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!D_LOCK_TIME&lock_D -> S1 |true -> S0).
+Composition:MINIMISE_P_D_LOCK_TIMING = D_LOCK_TIME || lock_D || SYNC || MINIMISE_P_D_LOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 41 Memory used: 32462KB
+Composed in 19ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_D_LOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_D_LOCK_TIMING)
+DFA(MINIMISE_P_D_LOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_D_LOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Formula !MINIMISE_P_D_UNLOCK_TIMING = (true U (!UNLOCK_TIME & unLock_D))
+GBA 2 states 3 transitions
+Buchi automata:
+MINIMISE_P_D_UNLOCK_TIMING = S0,
+S1@ =(true -> S1),
+S0 =(!UNLOCK_TIME&unLock_D -> S1 |true -> S0).
+Composition:MINIMISE_P_D_UNLOCK_TIMING = UNLOCK_TIME || unLock_D || SYNC || MINIMISE_P_D_UNLOCK_TIMING
+State Space: 2 * 2 * 2 * 2 = 2 ** 4
+Composing...
+-- States: 16 Transitions: 369 Memory used: 32572KB
+Composed in 18ms
+After Tau elimination = 8 state
+Tau reduction ON
+MINIMISE_P_D_UNLOCK_TIMING minimising...
+Minimised States: 3 in 0ms
+make DFA(MINIMISE_P_D_UNLOCK_TIMING)
+DFA(MINIMISE_P_D_UNLOCK_TIMING) has 2 states.
+Tau reduction ON
+MINIMISE_P_D_UNLOCK_TIMING minimising...
+Minimised States: 2 in 0ms
+Compile is Complete!
+
+
+
+===================================================
+           Stepwise Controller Synthesis           
+===================================================
+[info] STEP1 : Analyzing the synthesis process...
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [VISITOR, HALL, ROOM_A, DOOR_LOCK_HALL]
+> MINIMISE_P_B_LOCK_TIMING : [VISITOR, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_HALL_LOCK_TIMING : [VISITOR, HALL, DOOR_LOCK_HALL]
+> MINIMISE_P_VISITOR_RULE_B : [VISITOR, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_VISITOR_RULE_D : [VISITOR, ROOM_D, DOOR_LOCK_D]
+> MINIMISE_P_VISITOR_RULE_C : [VISITOR, ROOM_C, DOOR_LOCK_C]
+> MINIMISE_P_UNLOCK_RULE_B1 : [VISITOR, ROOM_C, DOOR_LOCK_B]
+> MINIMISE_P_C_LOCK_TIMING : [VISITOR, ROOM_C, DOOR_LOCK_C]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [VISITOR, ROOM_A, DOOR_LOCK_HALL]
+> MINIMISE_P_LOCK_RULE_A1 : [VISITOR, ROOM_A, DOOR_LOCK_A]
+> MINIMISE_P_D_LOCK_TIMING : [VISITOR, ROOM_D, DOOR_LOCK_D]
+> MINIMISE_P_UNLOCK_RULE_C1 : [VISITOR, ROOM_D, DOOR_LOCK_C]
+> MINIMISE_P_LOCK_RULE_C1 : [VISITOR, ROOM_C, DOOR_LOCK_C]
+> MINIMISE_P_LOCK_RULE_HALL1 : [VISITOR, HALL, DOOR_LOCK_HALL]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [VISITOR, HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_HALL]
+> MINIMISE_P_VISITOR_RULE_A : [VISITOR, ROOM_A, DOOR_LOCK_A]
+> MINIMISE_P_UNLOCK_RULE_A1 : [VISITOR, ROOM_B, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_C2 : [VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_C]
+> MINIMISE_P_A_LOCK_TIMING : [VISITOR, ROOM_A, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_B1 : [VISITOR, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_D1 : [VISITOR, ROOM_D, DOOR_LOCK_D]
+> MINIMISE_P_LOCK_RULE_B2 : [VISITOR, ROOM_B, ROOM_C, DOOR_LOCK_B]
+> MINIMISE_P_D_UNLOCK_TIMING : [VISITOR, HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_D]
+> MINIMISE_P_VISITOR_RULE_HALL : [VISITOR, HALL, DOOR_LOCK_HALL]
+> MINIMISE_P_UNLOCK_RULE_D1 : [VISITOR, DOOR_LOCK_D]
+> MINIMISE_P_LOCK_RULE_D2 : [VISITOR, ROOM_D, DOOR_LOCK_D]
+> MINIMISE_P_B_UNLOCK_TIMING : [VISITOR, HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_A2 : [VISITOR, ROOM_A, ROOM_B, DOOR_LOCK_A]
+> MINIMISE_P_A_UNLOCK_TIMING : [VISITOR, HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_A]
+> MINIMISE_P_C_UNLOCK_TIMING : [VISITOR, HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_C]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : []
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 4
+> MINIMISE_P_B_LOCK_TIMING cost : 3
+> MINIMISE_P_HALL_LOCK_TIMING cost : 3
+> MINIMISE_P_VISITOR_RULE_B cost : 3
+> MINIMISE_P_VISITOR_RULE_D cost : 3
+> MINIMISE_P_VISITOR_RULE_C cost : 3
+> MINIMISE_P_UNLOCK_RULE_B1 cost : 3
+> MINIMISE_P_C_LOCK_TIMING cost : 3
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 3
+> MINIMISE_P_LOCK_RULE_A1 cost : 3
+> MINIMISE_P_D_LOCK_TIMING cost : 3
+> MINIMISE_P_UNLOCK_RULE_C1 cost : 3
+> MINIMISE_P_LOCK_RULE_C1 cost : 3
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 3
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 7
+> MINIMISE_P_VISITOR_RULE_A cost : 3
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 3
+> MINIMISE_P_LOCK_RULE_C2 cost : 4
+> MINIMISE_P_A_LOCK_TIMING cost : 3
+> MINIMISE_P_LOCK_RULE_B1 cost : 3
+> MINIMISE_P_LOCK_RULE_D1 cost : 3
+> MINIMISE_P_LOCK_RULE_B2 cost : 4
+> MINIMISE_P_D_UNLOCK_TIMING cost : 7
+> MINIMISE_P_VISITOR_RULE_HALL cost : 3
+> MINIMISE_P_UNLOCK_RULE_D1 cost : 2
+> MINIMISE_P_LOCK_RULE_D2 cost : 3
+> MINIMISE_P_B_UNLOCK_TIMING cost : 7
+> MINIMISE_P_LOCK_RULE_A2 cost : 4
+> MINIMISE_P_A_UNLOCK_TIMING cost : 7
+> MINIMISE_P_C_UNLOCK_TIMING cost : 7
+
+[info] Target Requirement
+> MINIMISE_P_UNLOCK_RULE_D1 cost : 2
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_B_LOCK_TIMING : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_VISITOR_RULE_B : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_VISITOR_RULE_D : [ROOM_D, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_VISITOR_RULE_C : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_UNLOCK_RULE_B1 : [ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_C_LOCK_TIMING : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_D_LOCK_TIMING : [ROOM_D, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_UNLOCK_RULE_C1 : [ROOM_D, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_C1 : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_UNLOCK_RULE_A1 : [ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_C2 : [ROOM_C, ROOM_D, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_B1 : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_D1 : [ROOM_D, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_B2 : [ROOM_B, ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_D2 : [ROOM_D, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, ROOM_D, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, VISITOR]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 5
+> MINIMISE_P_B_LOCK_TIMING cost : 4
+> MINIMISE_P_HALL_LOCK_TIMING cost : 4
+> MINIMISE_P_VISITOR_RULE_B cost : 4
+> MINIMISE_P_VISITOR_RULE_D cost : 3
+> MINIMISE_P_VISITOR_RULE_C cost : 4
+> MINIMISE_P_UNLOCK_RULE_B1 cost : 4
+> MINIMISE_P_C_LOCK_TIMING cost : 4
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 4
+> MINIMISE_P_LOCK_RULE_A1 cost : 4
+> MINIMISE_P_D_LOCK_TIMING cost : 3
+> MINIMISE_P_UNLOCK_RULE_C1 cost : 4
+> MINIMISE_P_LOCK_RULE_C1 cost : 4
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 4
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 8
+> MINIMISE_P_VISITOR_RULE_A cost : 4
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 4
+> MINIMISE_P_LOCK_RULE_C2 cost : 5
+> MINIMISE_P_A_LOCK_TIMING cost : 4
+> MINIMISE_P_LOCK_RULE_B1 cost : 4
+> MINIMISE_P_LOCK_RULE_D1 cost : 3
+> MINIMISE_P_LOCK_RULE_B2 cost : 5
+> MINIMISE_P_D_UNLOCK_TIMING cost : 7
+> MINIMISE_P_VISITOR_RULE_HALL cost : 4
+> MINIMISE_P_LOCK_RULE_D2 cost : 3
+> MINIMISE_P_B_UNLOCK_TIMING cost : 8
+> MINIMISE_P_LOCK_RULE_A2 cost : 5
+> MINIMISE_P_A_UNLOCK_TIMING cost : 8
+> MINIMISE_P_C_UNLOCK_TIMING cost : 8
+
+[info] Target Requirement
+> MINIMISE_P_D_LOCK_TIMING cost : 3
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_B_LOCK_TIMING : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_B : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_C : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_B1 : [ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_C_LOCK_TIMING : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_C1 : [DOOR_LOCK_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_C1 : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_A1 : [ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_C2 : [ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_B1 : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_B2 : [ROOM_B, ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_A, DOOR_LOCK_D, VISITOR, ROOM_D]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_C, DOOR_LOCK_D, VISITOR, ROOM_D]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, VISITOR, ROOM_D]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 6
+> MINIMISE_P_B_LOCK_TIMING cost : 5
+> MINIMISE_P_HALL_LOCK_TIMING cost : 5
+> MINIMISE_P_VISITOR_RULE_B cost : 5
+> MINIMISE_P_VISITOR_RULE_C cost : 5
+> MINIMISE_P_UNLOCK_RULE_B1 cost : 5
+> MINIMISE_P_C_LOCK_TIMING cost : 5
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 5
+> MINIMISE_P_LOCK_RULE_A1 cost : 5
+> MINIMISE_P_UNLOCK_RULE_C1 cost : 4
+> MINIMISE_P_LOCK_RULE_C1 cost : 5
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 5
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 8
+> MINIMISE_P_VISITOR_RULE_A cost : 5
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 5
+> MINIMISE_P_LOCK_RULE_C2 cost : 5
+> MINIMISE_P_A_LOCK_TIMING cost : 5
+> MINIMISE_P_LOCK_RULE_B1 cost : 5
+> MINIMISE_P_LOCK_RULE_B2 cost : 6
+> MINIMISE_P_D_UNLOCK_TIMING cost : 7
+> MINIMISE_P_VISITOR_RULE_HALL cost : 5
+> MINIMISE_P_B_UNLOCK_TIMING cost : 8
+> MINIMISE_P_LOCK_RULE_A2 cost : 6
+> MINIMISE_P_A_UNLOCK_TIMING cost : 8
+> MINIMISE_P_C_UNLOCK_TIMING cost : 8
+
+[info] Target Requirement
+> MINIMISE_P_UNLOCK_RULE_C1 cost : 4
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_B_LOCK_TIMING : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_B : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_C : [ROOM_C, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_B1 : [ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_C_LOCK_TIMING : [ROOM_C, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_C1 : [ROOM_C, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_A1 : [ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_C2 : [ROOM_C, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_B1 : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_B2 : [ROOM_B, ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, ROOM_C, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 7
+> MINIMISE_P_B_LOCK_TIMING cost : 6
+> MINIMISE_P_HALL_LOCK_TIMING cost : 6
+> MINIMISE_P_VISITOR_RULE_B cost : 6
+> MINIMISE_P_VISITOR_RULE_C cost : 5
+> MINIMISE_P_UNLOCK_RULE_B1 cost : 6
+> MINIMISE_P_C_LOCK_TIMING cost : 5
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 6
+> MINIMISE_P_LOCK_RULE_A1 cost : 6
+> MINIMISE_P_LOCK_RULE_C1 cost : 5
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 6
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 9
+> MINIMISE_P_VISITOR_RULE_A cost : 6
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 6
+> MINIMISE_P_LOCK_RULE_C2 cost : 5
+> MINIMISE_P_A_LOCK_TIMING cost : 6
+> MINIMISE_P_LOCK_RULE_B1 cost : 6
+> MINIMISE_P_LOCK_RULE_B2 cost : 7
+> MINIMISE_P_D_UNLOCK_TIMING cost : 8
+> MINIMISE_P_VISITOR_RULE_HALL cost : 6
+> MINIMISE_P_B_UNLOCK_TIMING cost : 9
+> MINIMISE_P_LOCK_RULE_A2 cost : 7
+> MINIMISE_P_A_UNLOCK_TIMING cost : 9
+> MINIMISE_P_C_UNLOCK_TIMING cost : 8
+
+[info] Target Requirement
+> MINIMISE_P_C_LOCK_TIMING cost : 5
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_B_LOCK_TIMING : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_B : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_B1 : [DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_UNLOCK_RULE_A1 : [ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_LOCK_RULE_B1 : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_LOCK_RULE_B2 : [ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 8
+> MINIMISE_P_B_LOCK_TIMING cost : 7
+> MINIMISE_P_HALL_LOCK_TIMING cost : 7
+> MINIMISE_P_VISITOR_RULE_B cost : 7
+> MINIMISE_P_UNLOCK_RULE_B1 cost : 6
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 7
+> MINIMISE_P_LOCK_RULE_A1 cost : 7
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 7
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 9
+> MINIMISE_P_VISITOR_RULE_A cost : 7
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 7
+> MINIMISE_P_A_LOCK_TIMING cost : 7
+> MINIMISE_P_LOCK_RULE_B1 cost : 7
+> MINIMISE_P_LOCK_RULE_B2 cost : 7
+> MINIMISE_P_D_UNLOCK_TIMING cost : 8
+> MINIMISE_P_VISITOR_RULE_HALL cost : 7
+> MINIMISE_P_B_UNLOCK_TIMING cost : 9
+> MINIMISE_P_LOCK_RULE_A2 cost : 8
+> MINIMISE_P_A_UNLOCK_TIMING cost : 9
+> MINIMISE_P_C_UNLOCK_TIMING cost : 8
+
+[info] Target Requirement
+> MINIMISE_P_UNLOCK_RULE_B1 cost : 6
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_B_LOCK_TIMING : [ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_VISITOR_RULE_B : [ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_UNLOCK_RULE_A1 : [ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_B1 : [ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_B2 : [ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, ROOM_B, DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 9
+> MINIMISE_P_B_LOCK_TIMING cost : 7
+> MINIMISE_P_HALL_LOCK_TIMING cost : 8
+> MINIMISE_P_VISITOR_RULE_B cost : 7
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 8
+> MINIMISE_P_LOCK_RULE_A1 cost : 8
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 8
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 10
+> MINIMISE_P_VISITOR_RULE_A cost : 8
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 8
+> MINIMISE_P_A_LOCK_TIMING cost : 8
+> MINIMISE_P_LOCK_RULE_B1 cost : 7
+> MINIMISE_P_LOCK_RULE_B2 cost : 7
+> MINIMISE_P_D_UNLOCK_TIMING cost : 9
+> MINIMISE_P_VISITOR_RULE_HALL cost : 8
+> MINIMISE_P_B_UNLOCK_TIMING cost : 9
+> MINIMISE_P_LOCK_RULE_A2 cost : 9
+> MINIMISE_P_A_UNLOCK_TIMING cost : 10
+> MINIMISE_P_C_UNLOCK_TIMING cost : 9
+
+[info] Target Requirement
+> MINIMISE_P_B_LOCK_TIMING cost : 7
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_UNLOCK_RULE_A1 : [DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 10
+> MINIMISE_P_HALL_LOCK_TIMING cost : 9
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 9
+> MINIMISE_P_LOCK_RULE_A1 cost : 9
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 9
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 10
+> MINIMISE_P_VISITOR_RULE_A cost : 9
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 8
+> MINIMISE_P_A_LOCK_TIMING cost : 9
+> MINIMISE_P_D_UNLOCK_TIMING cost : 9
+> MINIMISE_P_VISITOR_RULE_HALL cost : 9
+> MINIMISE_P_B_UNLOCK_TIMING cost : 9
+> MINIMISE_P_LOCK_RULE_A2 cost : 9
+> MINIMISE_P_A_UNLOCK_TIMING cost : 10
+> MINIMISE_P_C_UNLOCK_TIMING cost : 9
+
+[info] Target Requirement
+> MINIMISE_P_UNLOCK_RULE_A1 cost : 8
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_A1 : [ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_VISITOR_RULE_A : [ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_A_LOCK_TIMING : [ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_A2 : [ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, ROOM_A, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 11
+> MINIMISE_P_HALL_LOCK_TIMING cost : 10
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 10
+> MINIMISE_P_LOCK_RULE_A1 cost : 9
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 10
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 11
+> MINIMISE_P_VISITOR_RULE_A cost : 9
+> MINIMISE_P_A_LOCK_TIMING cost : 9
+> MINIMISE_P_D_UNLOCK_TIMING cost : 10
+> MINIMISE_P_VISITOR_RULE_HALL cost : 10
+> MINIMISE_P_B_UNLOCK_TIMING cost : 10
+> MINIMISE_P_LOCK_RULE_A2 cost : 9
+> MINIMISE_P_A_UNLOCK_TIMING cost : 10
+> MINIMISE_P_C_UNLOCK_TIMING cost : 10
+
+[info] Target Requirement
+> MINIMISE_P_A_LOCK_TIMING cost : 9
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_HALL_LOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_HALL1 : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_D_UNLOCK_TIMING : [HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_VISITOR_RULE_HALL : [HALL, DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_B_UNLOCK_TIMING : [HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_A_UNLOCK_TIMING : [HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_C_UNLOCK_TIMING : [HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 11
+> MINIMISE_P_HALL_LOCK_TIMING cost : 11
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 10
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 11
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 11
+> MINIMISE_P_D_UNLOCK_TIMING cost : 10
+> MINIMISE_P_VISITOR_RULE_HALL cost : 11
+> MINIMISE_P_B_UNLOCK_TIMING cost : 10
+> MINIMISE_P_A_UNLOCK_TIMING cost : 10
+> MINIMISE_P_C_UNLOCK_TIMING cost : 10
+
+[info] Target Requirement
+> MINIMISE_P_A_UNLOCK_TIMING cost : 10
+
+[info] Monitored Models
+> MINIMISE_P_LOCK_RULE_HALL2 : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_HALL_LOCK_TIMING : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_UNLOCK_RULE_HALL1 : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_LOCK_RULE_HALL1 : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_HALL_UNLOCK_TIMING : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+> MINIMISE_P_VISITOR_RULE_HALL : [DOOR_LOCK_HALL, DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+
+[info] Synthetic Cost (number of monitored models)
+partControllers : [[DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]]
+> MINIMISE_P_LOCK_RULE_HALL2 cost : 11
+> MINIMISE_P_HALL_LOCK_TIMING cost : 11
+> MINIMISE_P_UNLOCK_RULE_HALL1 cost : 11
+> MINIMISE_P_LOCK_RULE_HALL1 cost : 11
+> MINIMISE_P_HALL_UNLOCK_TIMING cost : 11
+> MINIMISE_P_VISITOR_RULE_HALL cost : 11
+
+[info] Target Requirement
+> MINIMISE_P_HALL_LOCK_TIMING cost : 11
+
+[info] STEP1 : Completed!
+
+---------------------------------------------------
+            Generate Synthesis Process             
+---------------------------------------------------
+[STEP0] PartController_0
+ > Component Models : [DOOR_LOCK_D, VISITOR]
+ > Analyzed Models  : [MINIMISE_P_UNLOCK_RULE_D1]
+ > Input Models     : [VISITOR, DOOR_LOCK_D, MINIMISE_P_UNLOCK_RULE_D1]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_B.3, arrive_D.1, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, arrive_Hall.3, deny_D, arrive_Hall.4, deny_C, arrive_Hall.5, arrive_B.4, arrive_D.2, arrive_Hall.6, arrive_B.5, arrive_D.3, arrive_Hall.7, arrive_B.6, arrive_D.4, arrive_Hall.8, arrive_B.7, arrive_D.5, arrive_B.8, arrive_D.6, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, reqEnter_Hall, arrive_A.3, arrive_C.1, arrive_A.4, arrive_C.2, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, arrive_A.5, arrive_C.3, arrive_A.6, arrive_C.4, deny_Hall, arrive_A.7, arrive_C.5, arrive_A.8, arrive_C.6, unLock_D, arrive_C.7, allow_Hall, arrive_C.8]
+ > Input PartController  : []
+ > Num of PartController : 0
+
+[STEP1] PartController_1
+ > Component Models : [DOOR_LOCK_D, VISITOR, ROOM_D]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_D_LOCK_TIMING]
+ > Input Models     : [ROOM_D, PartController_0, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_D2]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_D.1, arrive_B.3, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, arrive_Hall.3, deny_D, arrive_Hall.4, deny_C, arrive_D.2, arrive_Hall.5, arrive_B.4, arrive_D.3, arrive_Hall.6, arrive_B.5, arrive_D.4, arrive_Hall.7, arrive_B.6, arrive_D.5, arrive_Hall.8, arrive_B.7, arrive_D.6, arrive_B.8, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, reqEnter_Hall, arrive_A.3, arrive_C.1, arrive_A.4, arrive_C.2, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, arrive_A.5, arrive_C.3, arrive_A.6, arrive_C.4, deny_Hall, arrive_A.7, arrive_C.5, arrive_A.8, arrive_C.6, unLock_D, arrive_C.7, allow_Hall, arrive_C.8]
+ > Input PartController  : [PartController_0]
+ > Num of PartController : 1
+
+[STEP2] PartController_2
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_D]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_D_LOCK_TIMING]
+ > Input Models     : [DOOR_LOCK_C, PartController_1, MINIMISE_P_UNLOCK_RULE_C1]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_D.1, arrive_B.3, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, arrive_Hall.3, deny_D, arrive_Hall.4, deny_C, arrive_D.2, arrive_Hall.5, arrive_B.4, lock_C, arrive_D.3, arrive_Hall.6, arrive_B.5, arrive_D.4, arrive_Hall.7, arrive_B.6, arrive_D.5, arrive_Hall.8, arrive_B.7, arrive_D.6, arrive_B.8, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, reqEnter_Hall, arrive_A.3, arrive_C.1, arrive_A.4, arrive_C.2, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, arrive_A.5, arrive_C.3, arrive_A.6, arrive_C.4, unLock_C, deny_Hall, arrive_A.7, arrive_C.5, arrive_A.8, arrive_C.6, unLock_D, arrive_C.7, allow_Hall, arrive_C.8]
+ > Input PartController  : [PartController_1]
+ > Num of PartController : 1
+
+[STEP3] PartController_3
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_D_LOCK_TIMING]
+ > Input Models     : [ROOM_C, PartController_2, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_LOCK_RULE_C2]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_D.1, arrive_B.3, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, deny_D, arrive_Hall.3, arrive_Hall.4, deny_C, arrive_D.2, arrive_Hall.5, arrive_B.4, lock_C, arrive_D.3, arrive_Hall.6, arrive_B.5, arrive_D.4, arrive_Hall.7, arrive_B.6, arrive_D.5, arrive_Hall.8, arrive_B.7, arrive_D.6, arrive_B.8, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_C.1, reqEnter_Hall, arrive_A.3, arrive_C.2, arrive_A.4, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, arrive_C.3, arrive_A.5, arrive_C.4, arrive_A.6, arrive_C.5, unLock_C, deny_Hall, arrive_A.7, arrive_C.6, arrive_A.8, unLock_D, arrive_C.7, arrive_C.8, allow_Hall]
+ > Input PartController  : [PartController_2]
+ > Num of PartController : 1
+
+[STEP4] PartController_4
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, VISITOR, ROOM_C, ROOM_D, DOOR_LOCK_B]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_B1]
+ > Input Models     : [DOOR_LOCK_B, PartController_3, MINIMISE_P_UNLOCK_RULE_B1]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_D.1, arrive_B.3, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, deny_D, arrive_Hall.3, arrive_Hall.4, deny_C, lock_B, arrive_D.2, arrive_Hall.5, arrive_B.4, lock_C, arrive_D.3, arrive_Hall.6, arrive_B.5, arrive_D.4, arrive_Hall.7, arrive_B.6, arrive_D.5, arrive_Hall.8, arrive_B.7, arrive_D.6, arrive_B.8, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_C.1, reqEnter_Hall, arrive_A.3, arrive_C.2, arrive_A.4, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, unLock_B, arrive_C.3, arrive_A.5, arrive_C.4, arrive_A.6, arrive_C.5, unLock_C, deny_Hall, arrive_A.7, arrive_C.6, arrive_A.8, unLock_D, arrive_C.7, arrive_C.8, allow_Hall]
+ > Input PartController  : [PartController_3]
+ > Num of PartController : 1
+
+[STEP5] PartController_5
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_UNLOCK_RULE_B1, MINIMISE_P_LOCK_RULE_B2, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_B_LOCK_TIMING]
+ > Input Models     : [ROOM_B, PartController_4, MINIMISE_P_B_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_B2]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_B.3, arrive_D.1, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, deny_D, arrive_Hall.3, deny_C, arrive_Hall.4, arrive_B.4, lock_B, arrive_D.2, arrive_Hall.5, arrive_B.5, lock_C, arrive_D.3, arrive_Hall.6, arrive_B.6, arrive_D.4, arrive_Hall.7, arrive_B.7, arrive_D.5, arrive_Hall.8, arrive_B.8, arrive_D.6, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_C.1, reqEnter_Hall, arrive_A.3, arrive_C.2, arrive_A.4, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, unLock_B, arrive_C.3, arrive_A.5, arrive_C.4, arrive_A.6, arrive_C.5, unLock_C, deny_Hall, arrive_A.7, arrive_C.6, arrive_A.8, unLock_D, arrive_C.7, arrive_C.8, allow_Hall]
+ > Input PartController  : [PartController_4]
+ > Num of PartController : 1
+
+[STEP6] PartController_6
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, DOOR_LOCK_B, DOOR_LOCK_A]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_UNLOCK_RULE_B1, MINIMISE_P_UNLOCK_RULE_A1, MINIMISE_P_LOCK_RULE_B2, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_B_LOCK_TIMING]
+ > Input Models     : [DOOR_LOCK_A, PartController_5, MINIMISE_P_UNLOCK_RULE_A1]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_B.3, arrive_D.1, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, deny_D, arrive_Hall.3, deny_C, arrive_Hall.4, arrive_B.4, lock_B, arrive_D.2, arrive_Hall.5, arrive_B.5, lock_C, arrive_D.3, arrive_Hall.6, arrive_B.6, arrive_D.4, arrive_Hall.7, lock_A, arrive_B.7, arrive_D.5, arrive_Hall.8, arrive_B.8, arrive_D.6, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_C.1, reqEnter_Hall, arrive_A.3, arrive_C.2, arrive_A.4, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, unLock_A, unLock_B, arrive_C.3, arrive_A.5, arrive_C.4, arrive_A.6, arrive_C.5, unLock_C, deny_Hall, arrive_A.7, arrive_C.6, arrive_A.8, unLock_D, arrive_C.7, arrive_C.8, allow_Hall]
+ > Input PartController  : [PartController_5]
+ > Num of PartController : 1
+
+[STEP7] PartController_7
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, DOOR_LOCK_B, DOOR_LOCK_A]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_UNLOCK_RULE_B1, MINIMISE_P_UNLOCK_RULE_A1, MINIMISE_P_LOCK_RULE_A2, MINIMISE_P_LOCK_RULE_B2, MINIMISE_P_LOCK_RULE_A1, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_A_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_VISITOR_RULE_A, MINIMISE_P_B_LOCK_TIMING]
+ > Input Models     : [ROOM_A, PartController_6, MINIMISE_P_A_LOCK_TIMING, MINIMISE_P_LOCK_RULE_A1, MINIMISE_P_VISITOR_RULE_A, MINIMISE_P_LOCK_RULE_A2]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_B.3, arrive_D.1, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, deny_D, arrive_Hall.3, deny_C, arrive_Hall.4, arrive_B.4, lock_B, arrive_D.2, arrive_Hall.5, arrive_B.5, lock_C, arrive_D.3, arrive_Hall.6, arrive_B.6, arrive_D.4, arrive_Hall.7, lock_A, arrive_B.7, arrive_D.5, arrive_Hall.8, arrive_B.8, arrive_D.6, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_A.3, arrive_C.1, reqEnter_Hall, arrive_A.4, arrive_C.2, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, unLock_A, unLock_B, arrive_A.5, arrive_C.3, arrive_A.6, arrive_C.4, arrive_A.7, arrive_C.5, unLock_C, deny_Hall, arrive_A.8, arrive_C.6, unLock_D, arrive_C.7, arrive_C.8, allow_Hall]
+ > Input PartController  : [PartController_6]
+ > Num of PartController : 1
+
+[STEP8] PartController_8
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_A_UNLOCK_TIMING, MINIMISE_P_B_UNLOCK_TIMING, MINIMISE_P_UNLOCK_RULE_B1, MINIMISE_P_UNLOCK_RULE_A1, MINIMISE_P_LOCK_RULE_A2, MINIMISE_P_LOCK_RULE_B2, MINIMISE_P_LOCK_RULE_A1, MINIMISE_P_D_UNLOCK_TIMING, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_A_LOCK_TIMING, MINIMISE_P_C_UNLOCK_TIMING, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_VISITOR_RULE_A, MINIMISE_P_B_LOCK_TIMING]
+ > Input Models     : [HALL, PartController_7, MINIMISE_P_A_UNLOCK_TIMING, MINIMISE_P_D_UNLOCK_TIMING, MINIMISE_P_B_UNLOCK_TIMING, MINIMISE_P_C_UNLOCK_TIMING]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_B.3, arrive_D.1, allow_Out, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, arrive_Hall.3, deny_D, arrive_Hall.4, deny_C, arrive_Hall.5, arrive_B.4, lock_B, arrive_D.2, arrive_Hall.6, arrive_B.5, lock_C, arrive_D.3, arrive_Hall.7, arrive_B.6, arrive_D.4, arrive_Hall.8, lock_A, arrive_B.7, arrive_D.5, arrive_B.8, arrive_D.6, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_A.3, arrive_C.1, reqEnter_Hall, arrive_A.4, arrive_C.2, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, unLock_A, unLock_B, arrive_A.5, arrive_C.3, arrive_A.6, arrive_C.4, arrive_A.7, arrive_C.5, unLock_C, deny_Hall, arrive_A.8, arrive_C.6, unLock_D, arrive_C.7, allow_Hall, arrive_C.8]
+ > Input PartController  : [PartController_7]
+ > Num of PartController : 1
+
+[STEP9] Controller
+ > Component Models : [DOOR_LOCK_D, DOOR_LOCK_C, DOOR_LOCK_HALL, ROOM_D, VISITOR, ROOM_C, ROOM_B, ROOM_A, HALL, DOOR_LOCK_B, DOOR_LOCK_A]
+ > Analyzed Models  : [MINIMISE_P_LOCK_RULE_C2, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_B_UNLOCK_TIMING, MINIMISE_P_HALL_LOCK_TIMING, MINIMISE_P_HALL_UNLOCK_TIMING, MINIMISE_P_UNLOCK_RULE_A1, MINIMISE_P_LOCK_RULE_A2, MINIMISE_P_LOCK_RULE_A1, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_UNLOCK_RULE_HALL1, MINIMISE_P_UNLOCK_RULE_D1, MINIMISE_P_A_LOCK_TIMING, MINIMISE_P_C_UNLOCK_TIMING, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_B_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_HALL, MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_D2, MINIMISE_P_A_UNLOCK_TIMING, MINIMISE_P_UNLOCK_RULE_B1, MINIMISE_P_LOCK_RULE_B2, MINIMISE_P_D_UNLOCK_TIMING, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_UNLOCK_RULE_C1, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_VISITOR_RULE_A, MINIMISE_P_LOCK_RULE_HALL2, MINIMISE_P_LOCK_RULE_HALL1]
+ > Input Models     : [DOOR_LOCK_HALL, PartController_8, MINIMISE_P_HALL_LOCK_TIMING, MINIMISE_P_LOCK_RULE_HALL2, MINIMISE_P_UNLOCK_RULE_HALL1, MINIMISE_P_LOCK_RULE_HALL1, MINIMISE_P_HALL_UNLOCK_TIMING, MINIMISE_P_VISITOR_RULE_HALL]
+ > Actions          : [arrive_B.1, arrive_B.2, arrive_B.3, arrive_D.1, allow_Out, lock_Hall, leave, reqOut, lock_D, deny_B, deny_A, deny_Out, arrive_Hall.1, arrive_Hall.2, arrive_Hall.3, deny_D, arrive_Hall.4, deny_C, arrive_Hall.5, arrive_B.4, lock_B, arrive_D.2, arrive_Hall.6, arrive_B.5, lock_C, arrive_D.3, arrive_Hall.7, arrive_B.6, arrive_D.4, arrive_Hall.8, lock_A, arrive_B.7, arrive_D.5, arrive_B.8, arrive_D.6, arrive_D.7, arrive_D.8, notEnter, arrive_A.1, arrive_A.2, arrive_A.3, arrive_C.1, reqEnter_Hall, arrive_A.4, arrive_C.2, unLock_Hall, resRoomStatus, allow_D, allow_B, allow_C, allow_A, reqEnter_C, reqEnter_D, reqEnter_A, reqEnter_B, unLock_A, unLock_B, arrive_A.5, arrive_C.3, arrive_A.6, arrive_C.4, arrive_A.7, arrive_C.5, unLock_C, deny_Hall, arrive_A.8, arrive_C.6, unLock_D, arrive_C.7, allow_Hall, arrive_C.8]
+ > Input PartController  : [PartController_8]
+ > Num of PartController : 1
+
+
+
+[info] STEP2 : Synthesizing from synthesis process...
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_0
+[info] Input Models : [VISITOR, DOOR_LOCK_D, MINIMISE_P_UNLOCK_RULE_D1]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_0 = VISITOR || DOOR_LOCK_D || MINIMISE_P_UNLOCK_RULE_D1
+State Space: 25 * 2 * 3 = 2 ** 8
+Composing...
+-- States: 58 Transitions: 283 Memory used: 32769KB
+Composed in 29ms
+Solving the LTS control problem.
+Environment states: 59
+Game states: 59
+Analysis time: 110ms.
+Controller [58] generated successfully.
+Composition:PartController_0 = PartController_0
+State Space: 58 = 2 ** 6
+Composing...
+-- States: 58 Transitions: 277 Memory used: 35272KB
+Composed in 21ms
+Tau reduction ON
+PartController_0 minimising....
+Minimised States: 48 in 0ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_1
+[info] Input Models : [ROOM_D, PartController_0, MINIMISE_P_D_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_D, MINIMISE_P_LOCK_RULE_D1, MINIMISE_P_LOCK_RULE_D2]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_1 = ROOM_D || PartController_0 || MINIMISE_P_D_LOCK_TIMING || MINIMISE_P_VISITOR_RULE_D || MINIMISE_P_LOCK_RULE_D1 || MINIMISE_P_LOCK_RULE_D2
+State Space: 25 * 48 * 2 * 2 * 3 * 4 = 2 ** 17
+Composing...
+-- States: 80 Transitions: 284 Memory used: 33711KB
+Composed in 27ms
+Solving the LTS control problem.
+Environment states: 81
+Game states: 81
+Analysis time: 32ms.
+Controller [80] generated successfully.
+Composition:PartController_1 = PartController_1
+State Space: 80 = 2 ** 7
+Composing...
+-- States: 80 Transitions: 212 Memory used: 35057KB
+Composed in 26ms
+Tau reduction ON
+PartController_1 minimising......
+Minimised States: 72 in 0ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_2
+[info] Input Models : [DOOR_LOCK_C, PartController_1, MINIMISE_P_UNLOCK_RULE_C1]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_2 = DOOR_LOCK_C || PartController_1 || MINIMISE_P_UNLOCK_RULE_C1
+State Space: 2 * 72 * 3 = 2 ** 10
+Composing...
+-- States: 167 Transitions: 604 Memory used: 34366KB
+Composed in 22ms
+Solving the LTS control problem.
+Environment states: 168
+Game states: 168
+Analysis time: 37ms.
+Controller [167] generated successfully.
+Composition:PartController_2 = PartController_2
+State Space: 167 = 2 ** 8
+Composing...
+-- States: 167 Transitions: 592 Memory used: 35777KB
+Composed in 29ms
+Tau reduction ON
+PartController_2 minimising......
+Minimised States: 167 in 1ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_3
+[info] Input Models : [ROOM_C, PartController_2, MINIMISE_P_C_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_C, MINIMISE_P_LOCK_RULE_C1, MINIMISE_P_LOCK_RULE_C2]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_3 = ROOM_C || PartController_2 || MINIMISE_P_C_LOCK_TIMING || MINIMISE_P_VISITOR_RULE_C || MINIMISE_P_LOCK_RULE_C1 || MINIMISE_P_LOCK_RULE_C2
+State Space: 25 * 167 * 2 * 2 * 3 * 4 = 2 ** 19
+Composing...
+-- States: 266 Transitions: 869 Memory used: 35139KB
+Composed in 25ms
+Solving the LTS control problem.
+Environment states: 267
+Game states: 267
+Analysis time: 41ms.
+Controller [266] generated successfully.
+Composition:PartController_3 = PartController_3
+State Space: 266 = 2 ** 9
+Composing...
+-- States: 266 Transitions: 626 Memory used: 36562KB
+Composed in 29ms
+Tau reduction ON
+PartController_3 minimising........
+Minimised States: 243 in 2ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_4
+[info] Input Models : [DOOR_LOCK_B, PartController_3, MINIMISE_P_UNLOCK_RULE_B1]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_4 = DOOR_LOCK_B || PartController_3 || MINIMISE_P_UNLOCK_RULE_B1
+State Space: 2 * 243 * 3 = 2 ** 11
+Composing...
+-- States: 552 Transitions: 1841 Memory used: 36750KB
+Composed in 23ms
+Solving the LTS control problem.
+Environment states: 553
+Game states: 553
+Analysis time: 58ms.
+Controller [552] generated successfully.
+Composition:PartController_4 = PartController_4
+State Space: 552 = 2 ** 10
+Composing...
+-- States: 552 Transitions: 1807 Memory used: 38963KB
+Composed in 31ms
+Tau reduction ON
+PartController_4 minimising......
+Minimised States: 552 in 3ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_5
+[info] Input Models : [ROOM_B, PartController_4, MINIMISE_P_B_LOCK_TIMING, MINIMISE_P_VISITOR_RULE_B, MINIMISE_P_LOCK_RULE_B1, MINIMISE_P_LOCK_RULE_B2]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_5 = ROOM_B || PartController_4 || MINIMISE_P_B_LOCK_TIMING || MINIMISE_P_VISITOR_RULE_B || MINIMISE_P_LOCK_RULE_B1 || MINIMISE_P_LOCK_RULE_B2
+State Space: 25 * 552 * 2 * 2 * 3 * 4 = 2 ** 21
+Composing...
+-- States: 866 Transitions: 2626 Memory used: 38688KB
+Composed in 28ms
+Solving the LTS control problem.
+Environment states: 867
+Game states: 867
+Analysis time: 124ms.
+Controller [866] generated successfully.
+Composition:PartController_5 = PartController_5
+State Space: 866 = 2 ** 10
+Composing...
+-- States: 866 Transitions: 1826 Memory used: 41293KB
+Composed in 33ms
+Tau reduction ON
+PartController_5 minimising........
+Minimised States: 800 in 9ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_6
+[info] Input Models : [DOOR_LOCK_A, PartController_5, MINIMISE_P_UNLOCK_RULE_A1]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_6 = DOOR_LOCK_A || PartController_5 || MINIMISE_P_UNLOCK_RULE_A1
+State Space: 2 * 800 * 3 = 2 ** 13
+Composing...
+-- States: 1789 Transitions: 5546 Memory used: 42553KB
+Composed in 32ms
+Solving the LTS control problem.
+Environment states: 1790
+Game states: 1790
+Analysis time: 126ms.
+Controller [1789] generated successfully.
+Composition:PartController_6 = PartController_6
+State Space: 1789 = 2 ** 11
+Composing...
+-- States: 1789 Transitions: 5450 Memory used: 48838KB
+Composed in 44ms
+Tau reduction ON
+PartController_6 minimising.......
+Minimised States: 1789 in 27ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_7
+[info] Input Models : [ROOM_A, PartController_6, MINIMISE_P_A_LOCK_TIMING, MINIMISE_P_LOCK_RULE_A1, MINIMISE_P_VISITOR_RULE_A, MINIMISE_P_LOCK_RULE_A2]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_7 = ROOM_A || PartController_6 || MINIMISE_P_A_LOCK_TIMING || MINIMISE_P_LOCK_RULE_A1 || MINIMISE_P_VISITOR_RULE_A || MINIMISE_P_LOCK_RULE_A2
+State Space: 25 * 1789 * 2 * 3 * 2 * 4 = 2 ** 22
+Composing...
+-- States: 2772 Transitions: 7839 Memory used: 49760KB
+Composed in 40ms
+Solving the LTS control problem.
+Environment states: 2773
+Game states: 2773
+Analysis time: 160ms.
+Controller [2772] generated successfully.
+Composition:PartController_7 = PartController_7
+State Space: 2772 = 2 ** 12
+Composing...
+-- States: 2772 Transitions: 5256 Memory used: 58565KB
+Composed in 41ms
+Tau reduction ON
+PartController_7 minimising........
+Minimised States: 2583 in 96ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : PartController_8
+[info] Input Models : [HALL, PartController_7, MINIMISE_P_A_UNLOCK_TIMING, MINIMISE_P_D_UNLOCK_TIMING, MINIMISE_P_B_UNLOCK_TIMING, MINIMISE_P_C_UNLOCK_TIMING]
+[info] do_minimise  : true
+---------------------------------------------------
+Composition:PartController_8 = HALL || PartController_7 || MINIMISE_P_A_UNLOCK_TIMING || MINIMISE_P_D_UNLOCK_TIMING || MINIMISE_P_B_UNLOCK_TIMING || MINIMISE_P_C_UNLOCK_TIMING
+State Space: 25 * 2583 * 2 * 2 * 2 * 2 = 2 ** 21
+Composing...
+-- States: 10000 Transitions: 18248 Memory used: 64545KB
+-- States: 20000 Transitions: 34397 Memory used: 77366KB
+-- States: 22790 Transitions: 38504 Memory used: 83784KB
+Composed in 65ms
+Solving the LTS control problem.
+Environment states: 22791
+Game states: 22791
+Analysis time: 669ms.
+Controller [22790] generated successfully.
+Composition:PartController_8 = PartController_8
+State Space: 22790 = 2 ** 15
+Composing...
+-- States: 10000 Transitions: 17856 Memory used: 140227KB
+-- States: 20000 Transitions: 33219 Memory used: 152209KB
+-- States: 22790 Transitions: 37775 Memory used: 158382KB
+Composed in 134ms
+Tau reduction ON
+PartController_8 minimising.........
+Minimised States: 22140 in 6393ms
+
+-- Synthesis --------------------------------------
+[info] Output Model : Controller
+[info] Input Models : [DOOR_LOCK_HALL, PartController_8, MINIMISE_P_HALL_LOCK_TIMING, MINIMISE_P_LOCK_RULE_HALL2, MINIMISE_P_UNLOCK_RULE_HALL1, MINIMISE_P_LOCK_RULE_HALL1, MINIMISE_P_HALL_UNLOCK_TIMING, MINIMISE_P_VISITOR_RULE_HALL]
+[info] do_minimise  : false
+---------------------------------------------------
+Composition:Controller = DOOR_LOCK_HALL || PartController_8 || MINIMISE_P_HALL_LOCK_TIMING || MINIMISE_P_LOCK_RULE_HALL2 || MINIMISE_P_UNLOCK_RULE_HALL1 || MINIMISE_P_LOCK_RULE_HALL1 || MINIMISE_P_HALL_UNLOCK_TIMING || MINIMISE_P_VISITOR_RULE_HALL
+State Space: 2 * 22140 * 2 * 4 * 3 * 3 * 2 * 2 = 2 ** 25
+Composing...
+-- States: 8480 Transitions: 22603 Memory used: 135875KB
+Composed in 136ms
+Solving the LTS control problem.
+Environment states: 8481
+Game states: 8481
+Analysis time: 356ms.
+Controller [8480] generated successfully.
+Composition:Controller = Controller
+State Space: 8480 = 2 ** 14
+Composing...
+-- States: 8480 Transitions: 14339 Memory used: 112719KB
+Composed in 72ms
+[info] STEP2 : Completed!
+
+
+
+[info] Stepwise Controller Synthesis is Complete! (minimise)
+[info] Maximum State       : 22790
+[info] Maximum Transition  : 38504
+[info] Maximum Memory (KB) : 241424
+[info] Execution Time (ms)
+     * compile             : 692
+     * policy              : 3
+     * synthesis           : 2661
+     * minimise            : 6535
+     * total               : 9891
+
